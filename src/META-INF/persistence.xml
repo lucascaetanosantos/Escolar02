@@ -4,6 +4,8 @@
 	<persistence-unit name="escolar" transaction-type ="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>br.com.escolar.entity.Aluno</class>
+		<class>br.com.escolar.entity.Professor</class>
+		<class>br.com.escolar.entity.Empresa</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

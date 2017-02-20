@@ -3,6 +3,7 @@ package br.com.escolar.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,24 +24,18 @@ public class Empresa implements Serializable {
 	 */
 	private static final long serialVersionUID = -5327280166878210663L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nomeEmpresa;
-	@CNPJ
 	private String cnpjEmpresa;
 	private String ieEmpresa;
 	private String enderecoEmpresa;
 	private String bairroEmpresa;
 	private String cidadeEmpresa;
 	private String ufEmpresa;
-	@Temporal (TemporalType.DATE)
 	private Date dataFundacaoEmpresa;
-	@Temporal (TemporalType.DATE)
 	private Date dataCadastroEmpresa;
 	private String telefoneEmpresa;
 	private String celularEmpresa;
-	@Email
 	private String emailEmpresa;
 	
 	public Empresa(){
@@ -66,14 +61,17 @@ public class Empresa implements Serializable {
 		this.emailEmpresa = emailEmpresa;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	@Column(length = 120, nullable = false)
 	public String getNomeEmpresa() {
 		return nomeEmpresa;
 	}
@@ -82,6 +80,8 @@ public class Empresa implements Serializable {
 		this.nomeEmpresa = nomeEmpresa;
 	}
 
+	@CNPJ
+	@Column(length = 20, nullable = false)
 	public String getCnpjEmpresa() {
 		return cnpjEmpresa;
 	}
@@ -90,6 +90,7 @@ public class Empresa implements Serializable {
 		this.cnpjEmpresa = cnpjEmpresa;
 	}
 
+	@Column(length = 20, nullable = false)
 	public String getIeEmpresa() {
 		return ieEmpresa;
 	}
@@ -98,6 +99,7 @@ public class Empresa implements Serializable {
 		this.ieEmpresa = ieEmpresa;
 	}
 
+	@Column(length = 255, nullable = false)
 	public String getEnderecoEmpresa() {
 		return enderecoEmpresa;
 	}
@@ -106,6 +108,7 @@ public class Empresa implements Serializable {
 		this.enderecoEmpresa = enderecoEmpresa;
 	}
 
+	@Column(length = 255, nullable = false)
 	public String getBairroEmpresa() {
 		return bairroEmpresa;
 	}
@@ -114,6 +117,7 @@ public class Empresa implements Serializable {
 		this.bairroEmpresa = bairroEmpresa;
 	}
 
+	@Column(length = 255, nullable = false)
 	public String getCidadeEmpresa() {
 		return cidadeEmpresa;
 	}
@@ -122,6 +126,7 @@ public class Empresa implements Serializable {
 		this.cidadeEmpresa = cidadeEmpresa;
 	}
 
+	@Column(length = 2, nullable = false)
 	public String getUfEmpresa() {
 		return ufEmpresa;
 	}
@@ -130,6 +135,7 @@ public class Empresa implements Serializable {
 		this.ufEmpresa = ufEmpresa;
 	}
 
+	@Temporal (TemporalType.DATE)
 	public Date getDataFundacaoEmpresa() {
 		return dataFundacaoEmpresa;
 	}
@@ -138,6 +144,7 @@ public class Empresa implements Serializable {
 		this.dataFundacaoEmpresa = dataFundacaoEmpresa;
 	}
 
+	@Temporal (TemporalType.DATE)
 	public Date getDataCadastroEmpresa() {
 		return dataCadastroEmpresa;
 	}
@@ -146,6 +153,7 @@ public class Empresa implements Serializable {
 		this.dataCadastroEmpresa = dataCadastroEmpresa;
 	}
 
+	@Column(length = 20)
 	public String getTelefoneEmpresa() {
 		return telefoneEmpresa;
 	}
@@ -154,6 +162,7 @@ public class Empresa implements Serializable {
 		this.telefoneEmpresa = telefoneEmpresa;
 	}
 
+	@Column(length = 20, nullable = false)
 	public String getCelularEmpresa() {
 		return celularEmpresa;
 	}
@@ -162,6 +171,7 @@ public class Empresa implements Serializable {
 		this.celularEmpresa = celularEmpresa;
 	}
 
+	@Email
 	public String getEmailEmpresa() {
 		return emailEmpresa;
 	}

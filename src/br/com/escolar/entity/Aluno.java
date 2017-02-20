@@ -3,6 +3,7 @@ package br.com.escolar.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,37 +25,28 @@ public class Aluno implements Serializable {
 
 	private static final long serialVersionUID = -8811879410848389035L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nomeAluno;
 	private String cursoAluno;
 	private String turnoAluno;
-	@CPF
 	private String cpfAluno;
 	private String rgAluno;
 	private String enderecoAluno;
 	private String bairroAluno;
 	private String cidadeAluno;
 	private String ufAluno;
-	@Temporal (TemporalType.DATE)
 	private Date dataNascimentoAluno;
-	@Temporal (TemporalType.DATE)
 	private Date dataCadastroAluno = new Date();
 	private String telefoneAluno;
 	private String celularAluno;
-	@Email
 	private String emailAluno;
 
 	public Aluno() {
 	}
 
-	
-
-	public Aluno(Integer id, String nomeAluno, String cursoAluno, String turnoAluno, String cpfAluno,
-			String rgAluno, String enderecoAluno, String bairroAluno, String cidadeAluno, String ufAluno,
-			Date dataNascimentoAluno, Date dataCadastroAluno, String telefoneAluno, String celularAluno,
-			String emailAluno) {
+	public Aluno(Integer id, String nomeAluno, String cursoAluno, String turnoAluno, String cpfAluno, String rgAluno,
+			String enderecoAluno, String bairroAluno, String cidadeAluno, String ufAluno, Date dataNascimentoAluno,
+			Date dataCadastroAluno, String telefoneAluno, String celularAluno, String emailAluno) {
 		super();
 		this.id = id;
 		this.nomeAluno = nomeAluno;
@@ -73,7 +65,8 @@ public class Aluno implements Serializable {
 		this.emailAluno = emailAluno;
 	}
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
@@ -81,7 +74,8 @@ public class Aluno implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
+	@Column(length = 120, nullable = false)
 	public String getNomeAluno() {
 		return nomeAluno;
 	}
@@ -90,6 +84,7 @@ public class Aluno implements Serializable {
 		this.nomeAluno = nomeAluno;
 	}
 
+	@Column(length = 80, nullable = false)
 	public String getCursoAluno() {
 		return cursoAluno;
 	}
@@ -98,6 +93,7 @@ public class Aluno implements Serializable {
 		this.cursoAluno = cursoAluno;
 	}
 
+	@Column(length = 20, nullable = false)
 	public String getTurnoAluno() {
 		return turnoAluno;
 	}
@@ -105,7 +101,9 @@ public class Aluno implements Serializable {
 	public void setTurnoAluno(String turnoAluno) {
 		this.turnoAluno = turnoAluno;
 	}
-
+	
+	@CPF
+	@Column(length = 18, nullable = false)
 	public String getCpfAluno() {
 		return cpfAluno;
 	}
@@ -114,6 +112,7 @@ public class Aluno implements Serializable {
 		this.cpfAluno = cpfAluno;
 	}
 
+	@Column(length = 18, nullable = false)
 	public String getRgAluno() {
 		return rgAluno;
 	}
@@ -122,6 +121,7 @@ public class Aluno implements Serializable {
 		this.rgAluno = rgAluno;
 	}
 
+	@Column(length = 255, nullable = false)
 	public String getEnderecoAluno() {
 		return enderecoAluno;
 	}
@@ -130,6 +130,7 @@ public class Aluno implements Serializable {
 		this.enderecoAluno = enderecoAluno;
 	}
 
+	@Column(length = 120, nullable = false)
 	public String getBairroAluno() {
 		return bairroAluno;
 	}
@@ -138,6 +139,7 @@ public class Aluno implements Serializable {
 		this.bairroAluno = bairroAluno;
 	}
 
+	@Column(length = 120, nullable = false)
 	public String getCidadeAluno() {
 		return cidadeAluno;
 	}
@@ -146,6 +148,7 @@ public class Aluno implements Serializable {
 		this.cidadeAluno = cidadeAluno;
 	}
 
+	@Column(length = 2, nullable = false)
 	public String getUfAluno() {
 		return ufAluno;
 	}
@@ -153,7 +156,9 @@ public class Aluno implements Serializable {
 	public void setUfAluno(String ufAluno) {
 		this.ufAluno = ufAluno;
 	}
-
+	
+	@Temporal (TemporalType.DATE)
+	@Column(nullable = false)
 	public Date getDataNascimentoAluno() {
 		return dataNascimentoAluno;
 	}
@@ -162,6 +167,8 @@ public class Aluno implements Serializable {
 		this.dataNascimentoAluno = dataNascimentoAluno;
 	}
 
+	@Temporal (TemporalType.DATE)
+	@Column(nullable = false)
 	public Date getDataCadastroAluno() {
 		return dataCadastroAluno;
 	}
@@ -170,6 +177,7 @@ public class Aluno implements Serializable {
 		this.dataCadastroAluno = dataCadastroAluno;
 	}
 
+	@Column(length = 20)
 	public String getTelefoneAluno() {
 		return telefoneAluno;
 	}
@@ -178,6 +186,7 @@ public class Aluno implements Serializable {
 		this.telefoneAluno = telefoneAluno;
 	}
 
+	@Column(length = 20, nullable = false)
 	public String getCelularAluno() {
 		return celularAluno;
 	}
@@ -186,6 +195,8 @@ public class Aluno implements Serializable {
 		this.celularAluno = celularAluno;
 	}
 
+	@Email
+	@Column(length = 120)
 	public String getEmailAluno() {
 		return emailAluno;
 	}
@@ -219,4 +230,13 @@ public class Aluno implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Aluno [id=" + id + ", nomeAluno=" + nomeAluno + ", cursoAluno=" + cursoAluno + ", turnoAluno="
+				+ turnoAluno + ", cpfAluno=" + cpfAluno + ", rgAluno=" + rgAluno + ", enderecoAluno=" + enderecoAluno
+				+ ", bairroAluno=" + bairroAluno + ", cidadeAluno=" + cidadeAluno + ", ufAluno=" + ufAluno
+				+ ", dataNascimentoAluno=" + dataNascimentoAluno + ", dataCadastroAluno=" + dataCadastroAluno
+				+ ", telefoneAluno=" + telefoneAluno + ", celularAluno=" + celularAluno + ", emailAluno=" + emailAluno
+				+ "]";
+	}
 }

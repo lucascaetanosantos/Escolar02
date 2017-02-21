@@ -4,19 +4,19 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class HibernateUtil {
-	private static EntityManagerFactory emf;
+    private static EntityManagerFactory emf;
 
-	private HibernateUtil() {
-	}
+    private HibernateUtil() {
+    }
 
-	public static EntityManagerFactory geteEntityManagerFactory() {
-		if (emf == null) {
-			try {
-				emf = Persistence.createEntityManagerFactory("escolar");
-			} catch (Exception ex) {
-				System.err.println("A criação inicial do SessionFactory falhou!" + ex);
-			}
-		}
-		return emf;
+    public static EntityManagerFactory geteEntityManagerFactory() {
+	if (emf == null) {
+	    try {
+		emf = Persistence.createEntityManagerFactory("escolar");
+	    } catch (Exception ex) {
+		System.err.println("A criaï¿½ï¿½o inicial do SessionFactory falhou!" + ex);
+	    }
 	}
+	return emf;
+    }
 }

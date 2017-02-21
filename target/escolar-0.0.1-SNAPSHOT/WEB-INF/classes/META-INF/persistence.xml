@@ -4,6 +4,8 @@
 	<persistence-unit name="escolar" transaction-type ="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>br.com.escolar.entity.Aluno</class>
+		<class>br.com.escolar.entity.Professor</class>
+		<class>br.com.escolar.entity.Empresa</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
@@ -11,9 +13,9 @@
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.68.0.200:3306/luanescolar?createDatabaseIfNotExist=true" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.68.0.200:3306/lucasescolar?createDatabaseIfNotExist=true" />
+			<property name="javax.persistence.jdbc.user" value="aluno" />
+			<property name="javax.persistence.jdbc.password" value="123456" />
 		</properties>
 	</persistence-unit>
 </persistence>

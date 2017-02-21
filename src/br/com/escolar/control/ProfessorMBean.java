@@ -6,8 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.PostPersist;
 
-import br.com.escolar.dao.AlunoDao;
-import br.com.escolar.entity.Aluno;
+import br.com.escolar.dao.ProfessorDao;
 import br.com.escolar.entity.Professor;
 
 @ManagedBean
@@ -19,14 +18,14 @@ public class ProfessorMBean {
 	private static final long serialVersionUID = 456123;
 	
 	private Professor professor;
-	//private ProfessorDao ad;
+	private ProfessorDao ad;
 	private List<Professor> ProfessorList;
 	
 	@PostPersist
 	public void init(){
 		this.professor = new Professor();
-		//this.ad = new ProfessorDao();
-		//this.ProfessorList = ad.list();
+		this.ad = new ProfessorDao();
+		this.ProfessorList = ad.list();
 	}
 	
 	public String newProfessor() {
@@ -34,17 +33,17 @@ public class ProfessorMBean {
 	}
 	
 	public String delete(Professor professor){
-		//ad.delete(professor);
+		ad.delete(professor);
 		return "professor";
 	}
 	
-	public String edit(Professor preofessor) {
+	public String edit(Professor professor) {
 		this.professor = professor;
 		return "manageProfessor";
 	}
 	
 	public String save() {
-		//ad.saveOrUpdate(professor);
+		ad.saveOrUpdate(professor);
 		this.professor = new Professor();
 		return "professor";
 	}
@@ -57,13 +56,13 @@ public class ProfessorMBean {
 		this.professor = professor;
 	}
 
-	/*public ProfessorDao getAd() {
+	public ProfessorDao getAd() {
 		return ad;
 	}
 
 	public void setAd(ProfessorDao ad) {
 		this.ad = ad;
-	}*/
+	}
 
 	public List<Professor> getProfessorList() {
 		return ProfessorList;
